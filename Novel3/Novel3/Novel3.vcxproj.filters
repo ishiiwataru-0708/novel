@@ -30,6 +30,12 @@
     <ClCompile Include="mouse.cpp">
       <Filter>Novel</Filter>
     </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Novel</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Novel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameTask.h">
@@ -39,6 +45,15 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Key.h">
+      <Filter>Novel</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Novel</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Novel</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
       <Filter>Novel</Filter>
     </ClInclude>
   </ItemGroup>

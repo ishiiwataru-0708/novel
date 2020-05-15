@@ -4,7 +4,7 @@ class KeyClass
 {
 private:
 	int KeyState[256];
-	KeyClass() {}
+//	KeyClass() {}
 
 public:
 	static KeyClass* GetInstance();
@@ -23,7 +23,7 @@ private:
 	int MouseX, MouseY;					  //クリックされた座標を格納
 	int MouseState[2];					  //クリックしたキーを格納
 	int MouseWheel;						  //マウスホイールの回転量を格納
-	MouseClass() {}
+//	MouseClass() {}
 
 public:
 	static MouseClass* GetInstance();
