@@ -33,7 +33,10 @@
     <ClCompile Include="User.cpp">
       <Filter>Novel</Filter>
     </ClCompile>
-    <ClCompile Include="Title.cpp">
+    <ClCompile Include="Text.cpp">
+      <Filter>Novel</Filter>
+    </ClCompile>
+    <ClCompile Include="Draw.cpp">
       <Filter>Novel</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,10 +53,10 @@
     <ClInclude Include="User.h">
       <Filter>Novel</Filter>
     </ClInclude>
-    <ClInclude Include="define.h">
+    <ClInclude Include="Text.h">
       <Filter>Novel</Filter>
     </ClInclude>
-    <ClInclude Include="Title.h">
+    <ClInclude Include="Draw.h">
       <Filter>Novel</Filter>
     </ClInclude>
   </ItemGroup>

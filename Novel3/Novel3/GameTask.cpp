@@ -7,25 +7,32 @@
 {
 	SystemInit();
 
-	fontSize1 = CreateFontToHandle(NULL, 100, 100);// X:16,Y:32
+	mouse = new MouseClass;
 
+	fontSize1 = CreateFontToHandle(NULL, 100, 100);
+	fontSize2 = CreateFontToHandle(NULL, 25, 25);
 }
 
 GameTask::~GameTask()
 {
-	
+	delete(mouse);
 }
 
 int GameTask::GameTitle()
 {
-	DrawString(0, 0, "title", 0xffff);
-
+	
 	titleImage = LoadGraph("image/通学路(昼).jpg");
 
-	DrawGraph(0, 0, titleImage, true);
+	CharaImage = LoadGraph("image/藤林遥/ノーマル制服.png"); //キャラクターの画像
+	CharaImage2 = LoadGraph("image/木間ななせ/ノーマル制服.png"); //キャラクターの画像
 
-	DrawStringToHandle(200, 200, "INCONTRO",
+	DrawGraph(0, 0, titleImage, true);//画像の表示
+
+	DrawStringToHandle(200, 200, "INCONTRO",//タイトル表示
 		GetColor(255, 125, 0), fontSize1);// 
+
+	DrawStringToHandle(290, 400, "MOUSE　INPUT　LEFT",//クリック表示
+		GetColor(0, 15, 0), fontSize2);// 
 
 	return 0;
 }
@@ -43,6 +50,7 @@ int GameTask::GameMain()
 
 	return 0;
 }
+
 int GameTask::SystemInit()
 {
 	ChangeWindowMode(true);
@@ -69,12 +77,15 @@ void GameTask::ChengeGameMode(GAME_MODE name)
 
 int GameTask::GameUpdate(void)
 {
+	mouse->SetHitMouse();
 	switch (gameMode)
 	{
 	case GAME_TITLE:
 		GameTitle();
-		break;
-	case GAME_MAIN:
+		if (mouse->GetState(MOUSE::LEFT) == true)
+		{
+			gameMode = GAME_MAIN;
+		}
 		GameMain();
 		break;
 	case GAME_CLEAR:

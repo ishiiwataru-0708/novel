@@ -2,7 +2,7 @@
 
 
 class KeyClass;
-
+class MouseClass;
 class GameTask
 {
 public:
@@ -11,6 +11,7 @@ public:
 	{
 		GAME_TITLE,
 		GAME_MAIN,
+		GAME_MAIN2,
 		GAME_CLEAR,
 	};
 	GAME_MODE gameMode;
@@ -18,12 +19,13 @@ public:
 	
 
 	// ----- ｺﾝｽﾄﾗｸﾀ群
-	GameTask(); // ﾃﾞﾌｫﾙﾄｺﾝｽﾄﾗｸﾀを private にして外部から生成できない様にする
+	GameTask(); 
 	~GameTask();  // ﾃﾞｽﾄﾗｸﾀ 
 
 	int SystemInit(void);
 	int GameTitle(void); // ｹﾞｰﾑﾀｲﾄﾙ
 	int GameMain(void);  // ｹﾞｰﾑﾒｲﾝ
+	int GameMain2(void);  // ｹﾞｰﾑﾒｲﾝ
 	int GameClear(void); // ｹﾞｰﾑﾘｻﾞﾙﾄ
 
 	int GameUpdate(void);
@@ -31,7 +33,14 @@ public:
 	void ChengeGameMode(GAME_MODE);
 
 	int fontSize1;	// ﾌｫﾝﾄｻｲｽﾞ
+	int fontSize2;	// ﾌｫﾝﾄｻｲｽﾞ
 
 	int titleImage; //タイトルの背景
+	int CharaImage; //キャラクターの画像
+	int CharaImage2; //キャラクターの画像
+
+	int Tcount; //タイトルカウント
+
+	MouseClass* mouse;
 
 };

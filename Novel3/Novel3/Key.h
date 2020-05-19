@@ -1,4 +1,11 @@
 #pragma once
+#include<iostream>
+
+//マウスクラスで使う
+namespace MOUSE
+{
+	enum { LEFT, RIGHT };
+};
 
 class KeyClass 
 {
