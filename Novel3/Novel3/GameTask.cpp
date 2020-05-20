@@ -23,9 +23,6 @@ int GameTask::GameTitle()
 	
 	titleImage = LoadGraph("image/通学路(昼).jpg");
 
-	CharaImage = LoadGraph("image/藤林遥/ノーマル制服.png"); //キャラクターの画像
-	CharaImage2 = LoadGraph("image/木間ななせ/ノーマル制服.png"); //キャラクターの画像
-
 	DrawGraph(0, 0, titleImage, true);//画像の表示
 
 	DrawStringToHandle(200, 200, "INCONTRO",//タイトル表示

@@ -11,7 +11,6 @@ public:
 	{
 		GAME_TITLE,
 		GAME_MAIN,
-		GAME_MAIN2,
 		GAME_CLEAR,
 	};
 	GAME_MODE gameMode;
@@ -25,7 +24,6 @@ public:
 	int SystemInit(void);
 	int GameTitle(void); // ¹Þ°ÑÀ²ÄÙ
 	int GameMain(void);  // ¹Þ°ÑÒ²Ý
-	int GameMain2(void);  // ¹Þ°ÑÒ²Ý
 	int GameClear(void); // ¹Þ°ÑØ»ÞÙÄ
 
 	int GameUpdate(void);
