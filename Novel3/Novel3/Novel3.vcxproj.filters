@@ -30,12 +30,6 @@
     <ClCompile Include="mouse.cpp">
       <Filter>Novel</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="Title.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameTask.h">
