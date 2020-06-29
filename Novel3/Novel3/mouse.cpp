@@ -1,10 +1,15 @@
 #include<DxLib.h>
 #include "Key.h"
 
-MouseClass* MouseClass::GetInstance()
+MouseClass* MouseClass::Instance = nullptr;
+
+void MouseClass::ResetMouse()
 {
-	static MouseClass i;
-	return &i;
+	for (int i = 0; i < 2; i++)
+	{
+		MouseState[i] = false;
+	}
+
 }
 
 /*マウスの状態を取得*/
@@ -14,21 +19,21 @@ void MouseClass::SetHitMouse()
 	if (GetMouseInput() & MOUSE_INPUT_LEFT)
 	{
 
-		MouseState[LeftClick]++;
+		MouseState[MOUSE::_LEFT] = true;
 	}
-	else
+	/*else
 	{
-		MouseState[LeftClick] = 0;
+		MouseState[MOUSE::_LEFT] = false;
 
-	}
+	}*/
 	if (GetMouseInput() & MOUSE_INPUT_RIGHT)
 	{
-		MouseState[RightClick]++;
+		MouseState[MOUSE::_RIGHT] = true;
 	}
-	else
+	/*else
 	{
-		MouseState[RightClick] = 0;
-	}
+		MouseState[MOUSE::_RIGHT] = false;
+	}*/
 
 	//現在のマウス座標を取得
 	GetMousePoint(&MouseX, &MouseY);
@@ -61,9 +66,8 @@ int MouseClass::GetWheel()
 	return MouseWheel;
 }
 
-
 /*マウスの状態を返す*/
-int MouseClass::GetState(int MouseCode) 
+bool MouseClass::GetState(MOUSE MouseCode) 
 {
 	//マウスの状態を返す
 	return MouseState[MouseCode];

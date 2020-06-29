@@ -3,6 +3,7 @@
 
 class KeyClass;
 class MouseClass;
+
 class GameTask
 {
 public:
@@ -40,5 +41,8 @@ public:
 	int Tcount; //タイトルカウント
 
 	MouseClass* mouse;
+//	UserClass		 User;							//ユーザ情報クラス
+//	TitlePageClass* TitlePage = new TitlePageClass;	//タイトルページクラス
+	//GamePageClass* GamePage = new GamePageClass;	//ゲームページクラス
 
 };

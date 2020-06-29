@@ -2,6 +2,8 @@
 #include "DxLib.h"
 #include"Key.h"
 #include"comon.h"
+#include"User.h"
+#include"Text.h"
 
  GameTask::GameTask()
 {
@@ -23,19 +25,17 @@ int GameTask::GameTitle()
 	
 	titleImage = LoadGraph("image/通学路(昼).jpg");
 
+	
 	DrawGraph(0, 0, titleImage, true);//画像の表示
 
-	DrawStringToHandle(200, 200, "INCONTRO",//タイトル表示
-		GetColor(255, 125, 0), fontSize1);// 
-
-	DrawStringToHandle(290, 400, "MOUSE　INPUT　LEFT",//クリック表示
-		GetColor(0, 15, 0), fontSize2);// 
+	DrawString(100, 0, "title", 0xffff);
 
 	return 0;
 }
 
 int GameTask::GameClear()
 {
+	DrawString(0, 0, "CLear", 0xffff);
 	return 0;
 }
 
@@ -72,9 +72,13 @@ void GameTask::ChengeGameMode(GAME_MODE name)
 	gameMode = name;
 }
 
-int GameTask::GameUpdate(void)
+/*int GameTask::GameUpdate(void)
 {
-	mouse->SetHitMouse();
+	//変数宣言
+	bool EndFlag = 0;
+
+
+/*	mouse->SetHitMouse();
 	switch (gameMode)
 	{
 	case GAME_TITLE:
@@ -83,13 +87,14 @@ int GameTask::GameUpdate(void)
 		{
 			gameMode = GAME_MAIN;
 		}
-		GameMain();
+		break;
+	case GAME_MAIN:
+	   GameMain();
 		break;
 	case GAME_CLEAR:
 		GameClear();
 		break;
-		break;
 	}
 
-	return 0;
-}
+	return 0;*/
+//}*/
