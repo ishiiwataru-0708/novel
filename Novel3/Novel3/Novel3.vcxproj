@@ -135,16 +135,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="anime.cpp" />
+    <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="End.cpp" />
+    <ClCompile Include="functoin.cpp" />
     <ClCompile Include="GameTask.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mouse.cpp" />
+    <ClCompile Include="Page.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="title.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="anime.h" />
     <ClInclude Include="comon.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="Draw.h" />
+    <ClInclude Include="End.h" />
+    <ClInclude Include="function.h" />
     <ClInclude Include="GameTask.h" />
     <ClInclude Include="Key.h" />
+    <ClInclude Include="Page.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
