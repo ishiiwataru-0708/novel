@@ -1,6 +1,1 @@
-﻿  Text.cpp
-D:\麻生　夏\novel\Novel3\Novel3\Text.cpp(162,25): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
-D:\麻生　夏\novel\Novel3\Novel3\Text.cpp(181,24): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
-D:\麻生　夏\novel\Novel3\Novel3\Text.cpp(435,5): warning C4804: '>': 演算中の 'bool' 型の使用方法が安全ではありません
-D:\麻生　夏\novel\Novel3\Novel3\Text.cpp(189): warning C4715: 'TextClass::CutSpace': 値を返さないコントロール パスがあります。
-  Novel3.vcxproj -> D:\麻生　夏\novel\Novel3\Debug\Novel3.exe
+﻿  Novel3.vcxproj -> D:\novel\Novel3\Debug\Novel3.exe

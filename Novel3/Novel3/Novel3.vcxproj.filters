@@ -30,33 +30,6 @@
     <ClCompile Include="mouse.cpp">
       <Filter>Novel</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="Text.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="Draw.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="Page.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="title.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="anime.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="functoin.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="End.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Novel</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameTask.h">
@@ -71,28 +44,10 @@
     <ClInclude Include="User.h">
       <Filter>Novel</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
+    <ClInclude Include="define.h">
       <Filter>Novel</Filter>
     </ClInclude>
-    <ClInclude Include="Draw.h">
-      <Filter>Novel</Filter>
-    </ClInclude>
-    <ClInclude Include="Page.h">
-      <Filter>Novel</Filter>
-    </ClInclude>
-    <ClInclude Include="title.h">
-      <Filter>Novel</Filter>
-    </ClInclude>
-    <ClInclude Include="anime.h">
-      <Filter>Novel</Filter>
-    </ClInclude>
-    <ClInclude Include="function.h">
-      <Filter>Novel</Filter>
-    </ClInclude>
-    <ClInclude Include="End.h">
-      <Filter>Novel</Filter>
-    </ClInclude>
-    <ClInclude Include="test.h">
+    <ClInclude Include="Title.h">
       <Filter>Novel</Filter>
     </ClInclude>
   </ItemGroup>
