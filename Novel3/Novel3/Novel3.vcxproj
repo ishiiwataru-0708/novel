@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="anime.cpp" />
     <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="DrawShadow.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="functoin.cpp" />
     <ClCompile Include="GameTask.cpp" />

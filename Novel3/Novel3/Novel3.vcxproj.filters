@@ -54,6 +54,9 @@
     <ClCompile Include="title.cpp">
       <Filter>Novel</Filter>
     </ClCompile>
+    <ClCompile Include="DrawShadow.cpp">
+      <Filter>Novel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameTask.h">

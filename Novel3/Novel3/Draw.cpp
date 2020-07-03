@@ -15,7 +15,6 @@ TitleGraphClass::TitleGraphClass()
 void TitleGraphClass::Load()
 {
 	TitleBackHandle = LoadGraph("image/通学路(昼).jpg");
-
 }
 
 /*描画座標セット*/
@@ -46,9 +45,11 @@ TextGraphClass::TextGraphClass()
 void TextGraphClass::Load()
 {
 	//背景ロード
-	GameBackHandle.push_back(LoadGraph("image/駅前(昼).jpg"));
 	GameBackHandle.push_back(LoadGraph("image/教室(昼).jpg"));
 	GameBackHandle.push_back(LoadGraph("image/通学路(昼).jpg"));
+	GameBackHandle.push_back(LoadGraph("image/駅前(昼).jpg"));
+	
+	
 
 	//キャラクタ描画
 	CharacterHandle = LoadGraph("image/藤林遥/ノーマル制服.png");

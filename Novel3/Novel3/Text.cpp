@@ -3,6 +3,8 @@
 #include"Key.h"
 #include "User.h"
 #include"Page.h"
+#include"function.h"
+
 
 TextClass::TextClass()
 {
@@ -13,6 +15,13 @@ TextClass::TextClass()
 /*変数初期化*/
 void TextClass::InitVar() 
 {
+	Text.resize(64);
+
+	for (int i = 0; i < Text.size(); i++)
+	{
+		Text[i].resize(1024);
+	}
+
 	//メンバ変数初期化;
 	TextCount = 0;
 	SceneCount = 0;
@@ -21,8 +30,13 @@ void TextClass::InitVar()
 	TextGraphEndFlag = 0;
 	memset(LineMax, 0, sizeof(LineMax));
 	memset(LineNo, 0, sizeof(LineNo));
-	memset(Text, '\0', sizeof(Text));
+	
 	memset(Name, '\0', sizeof(Name));
+
+	for (int i = 0; i < Text.size(); i++)
+	{
+		std::fill(Text[i].begin(), Text[i].end(), '\0');
+	}
 }
 
 /*ストーリーロード*/
@@ -30,7 +44,7 @@ void TextClass::LoadStory()
 {
 	//真の変数
 	int							FileHandle;			//ファイルハンドル
-	char						TmpBuf[128];		//テキスト取得用一時変数
+	TCHAR						TmpBuf[128];		//テキスト取得用一時変数
 	char						FileName[64];		//ファイル名格納
 	std::string					TmpText;			//テキスト取得後操作用一時オブジェクト 
 	std::vector<std::string>	SplitTextArray;		//分割された文字を格納する配列
@@ -47,21 +61,19 @@ void TextClass::LoadStory()
 	const int NAME = 0;						//分割された文字列を格納する配列に関するもの
 	const int TEXT = 1;						//分割された文字列を格納する配列に関するもの
 
-
 	//SceneMax(定数)までロード
-	while (Scene <= SceneMax)
+	while (Scene <= SceneMax - 1)
 	{
-
 		//ファイル名を取得
-	//	sprintf(FileName, "./resource/story/zankyo scene%d.txt", Scene);
-		sprintf_s(FileName, "story/仮%d.txt",Scene);
+		sprintf_s(FileName, "story/仮1.txt",Scene);
 
 		//ファイルオープン
 		FileHandle = FileRead_open(FileName);
 
+		FileRead_set_format(FileHandle, DX_CHARCODEFORMAT_UTF8);
+
 		//ファイル終端までループ
-		while (FileRead_eof(FileHandle) == 0) 
-		{
+		while (FileRead_eof(FileHandle) == 0) {
 			//ファイルから一行取得
 			FileRead_gets(TmpBuf, LoadTextLen, FileHandle);
 
@@ -90,14 +102,12 @@ void TextClass::LoadStory()
 			//Nameが"コメント"ならコメントと判断しスキップ
 			if (Name[Scene][Count] == "コメント") continue;
 
-			//Textが'\0'なら前のテキストの続きと判断し、Nameに続きと代入し、
-			//TextにName(一行全て入ってる)の内容をコピー ＆ 行数加算
+			//Textが'\0'なら前のテキストの続きと判断し、Nameに続きと代入し、TextにName(一行全て入ってる)の内容をコピー ＆ 行数加算
 			//それ以外ならば次のテキストと判断し、SerifNoを加算し、行数加算
-			if (Text[Scene][Count] == "\0")
-			{
+			if (Text[Scene][Count] == "\0") {
 				Text[Scene][Count] = Name[Scene][Count];
 				Name[Scene][Count] = "続き";
-				LineNo[63][1023]++;
+				LineNo[Scene][SerifNo]++;
 			}
 			else {
 				SerifNo++;
@@ -203,22 +213,19 @@ void TextClass::Main(UserClass& User)
 	if (WriteMode != NOTWINDOW)
 	{
 		Graph.DrawWindow();
-
 	}
-
-	CheckCotrolCode(User);
-
 
 	//テキスト描画
 	if (WriteMode == NORMAL)
 	{
 		NormalWrite(User);	//通常テキスト描画
 	}
+	CheckCotrolCode(User);
 
 	//テキスト描画
-	if (WriteMode == NORMAL) NormalWrite(User);	//通常テキスト描画
+//	if (WriteMode == NORMAL) NormalWrite(User);	//通常テキスト描画
 	//if (WriteMode == BACKLOG) BackLogMain(User);	//バックログ
-	//if (WriteMode == NOTWINDOW) NotWindow();		//ウィンドウ非表示
+	if (WriteMode == NOTWINDOW) NotWindow();		//ウィンドウ非表示
 	//if (WriteMode == END) GameEnd(User);		//ゲーム終了
 
 }
@@ -239,7 +246,7 @@ void TextClass::ModeChange(int& ModeFlag, int& ChangeFlag, UserClass& User)
 
 	//バックログ
 //	if (Mouse->GetWheel() > 0 && WriteMode == NORMAL) WriteMode = BACKLOG;
-
+	
 	//エンディングモードへ
 	if (WriteMode == END) 
 	{
@@ -250,6 +257,8 @@ void TextClass::ModeChange(int& ModeFlag, int& ChangeFlag, UserClass& User)
 	//タイトル画面へ
 	if (WriteMode == TITLE)
 	{
+		WriteMode = NORMAL;
+		ModeFlag = MODE::END;
 		Count++;
 		DrawBox(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y, GetColor(0, 0, 0), TRUE);
 		SetFontSize(100);
@@ -304,6 +313,7 @@ void TextClass::WriteText(UserClass& User)
 	int  TmpCount = 0;								//一時カウンタ
 	int  LoopCount = 0;								//ループ用カウンタ
 	char WriteText[3];								//書き込み文字
+	std::string str = "";
 
 	//定数定義	
 	const int DrawX = 250;							//描画基準Ｘ座標						
@@ -352,6 +362,8 @@ void TextClass::WriteText(UserClass& User)
 				WriteText[0] = Text[SceneCount][TextCount + Line][LoopCount];//1byte目代入
 				WriteText[1] = Text[SceneCount][TextCount + Line][LoopCount + 1];//2byte目代入
 				WriteText[2] = '\0';
+				DrawStringShadow(DrawX + WriteX, DrawY + (LineSpace * Line),
+					WriteText, GetColor(233, 233, 233), GetColor(5, 5, 5));
 				LoopCount += 2;		//一文字分カウントアップ
 			}
 
@@ -379,7 +391,14 @@ void TextClass::WriteText(UserClass& User)
 
 	//描画タイミング動機用
 	WriteCount++;
+	
+	unsigned int Color;
 
+	// 白色の値を取得
+	Color = GetColor(255, 255, 255);
+
+	DrawFormatString(WriteX, WriteY, Color, str.c_str());
+	
 	//テキストが全て描画されたら、全文描画終了フラグを立てる
 	if (WriteLine == LineNo[SceneCount][SerifCount])
 	{
@@ -432,7 +451,7 @@ void TextClass::NotWindow()
 
 	Timer++;
 
-	if (Mouse.GetState(MOUSE::_RIGHT) > 0 && Timer > 20)
+	if (LP_MOUSE.GetState(MOUSE::_RIGHT) > 0 && Timer > 20)
 	{
 		WriteMode = NORMAL;
 		Timer = 0;
@@ -452,7 +471,7 @@ void TextClass::CheckCotrolCode(UserClass& User)
 	do {
 
 		EventFlag = FALSE;
-
+		
 		//背景画像制御
 		if (Name[SceneCount][TextCount] == "背景")
 		{

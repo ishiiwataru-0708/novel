@@ -1,3 +1,10 @@
-﻿     ライブラリ D:\麻生　夏\novel\Novel3\Debug\Novel3.lib とオブジェクト D:\麻生　夏\novel\Novel3\Debug\Novel3.exp を作成中
-title.obj : warning LNK4099: PDB 'vc142.pdb' が 'title.obj' で、または 'D:\麻生　夏\novel\Novel3\Debug\vc142.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-  Novel3.vcxproj -> D:\麻生　夏\novel\Novel3\Debug\Novel3.exe
+﻿  Text.cpp
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(20,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(36,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(68,40): warning C4474: 'sprintf_s': 書式文字列に渡された引数の数が多すぎます
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(68,40): message : プレースホルダーとそのパラメーターには 0 の可変個引数が必要ですが、1 が指定されています。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(172,25): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(191,24): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(454,5): warning C4804: '>': 演算中の 'bool' 型の使用方法が安全ではありません
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(199): warning C4715: 'TextClass::CutSpace': 値を返さないコントロール パスがあります。
+  Novel3.vcxproj -> D:\Users\1701305\Desktop\novel\Novel3\Debug\Novel3.exe
