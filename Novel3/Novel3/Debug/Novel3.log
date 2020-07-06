@@ -1,10 +1,17 @@
-﻿  Text.cpp
+﻿  GameTask.cpp
+  Page.cpp
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Page.cpp(12,22): warning C4805: '==': 演算中の 'int' 型と 'bool' 型の混用は安全ではありません
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Page.cpp(18,22): warning C4805: '==': 演算中の 'int' 型と 'bool' 型の混用は安全ではありません
+  Text.cpp
 D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(20,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
 D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(36,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(68,40): warning C4474: 'sprintf_s': 書式文字列に渡された引数の数が多すぎます
-D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(68,40): message : プレースホルダーとそのパラメーターには 0 の可変個引数が必要ですが、1 が指定されています。
-D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(172,25): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
-D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(191,24): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
-D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(454,5): warning C4804: '>': 演算中の 'bool' 型の使用方法が安全ではありません
-D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(199): warning C4715: 'TextClass::CutSpace': 値を返さないコントロール パスがあります。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(69,40): warning C4474: 'sprintf_s': 書式文字列に渡された引数の数が多すぎます
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(69,40): message : プレースホルダーとそのパラメーターには 0 の可変個引数が必要ですが、1 が指定されています。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(175,25): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(194,24): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(460,5): warning C4804: '>': 演算中の 'bool' 型の使用方法が安全ではありません
+  User.cpp
+  main.cpp
+  コードを生成中...
+D:\Users\1701305\Desktop\novel\Novel3\Novel3\Text.cpp(202): warning C4715: 'TextClass::CutSpace': 値を返さないコントロール パスがあります。
   Novel3.vcxproj -> D:\Users\1701305\Desktop\novel\Novel3\Debug\Novel3.exe

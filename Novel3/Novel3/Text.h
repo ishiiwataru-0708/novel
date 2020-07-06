@@ -13,6 +13,7 @@ typedef vector< vector<std::string> > Dvector_;
 #define EXAMPLE_MACRO_NAME
 #define _CRT_SECURE_NO_WARNINGS
 
+class KeyClass;
 class TextClass
 {
 private:
@@ -33,17 +34,7 @@ private:
 	int LineMax[100];									//1シーンごとのテキストの総行数
 	std::string Name[64][1024];							//キャラネーム変数
 	std::vector<std::vector<std::string>> Text;							//セリフテキスト変数
-	std::string string = "　コメント:シーン０"
-
-		"背景:暗闇"
-
-		"音楽 : 回想"
-
-		"主人公 : 夕日はもう見えない。"
-
-		"主人公 : 空はぼんやりと藍色に染まっている。"
-
-		"優介 : 「もう日が暮れるようになったんだ」";
+	bool oldLeftMouse;
 
 
 

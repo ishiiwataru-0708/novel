@@ -37,6 +37,7 @@ void TextClass::InitVar()
 	{
 		std::fill(Text[i].begin(), Text[i].end(), '\0');
 	}
+	oldLeftMouse = false;
 }
 
 /*ストーリーロード*/
@@ -73,7 +74,8 @@ void TextClass::LoadStory()
 		FileRead_set_format(FileHandle, DX_CHARCODEFORMAT_UTF8);
 
 		//ファイル終端までループ
-		while (FileRead_eof(FileHandle) == 0) {
+		while (FileRead_eof(FileHandle) == 0) 
+		{
 			//ファイルから一行取得
 			FileRead_gets(TmpBuf, LoadTextLen, FileHandle);
 
@@ -109,7 +111,8 @@ void TextClass::LoadStory()
 				Name[Scene][Count] = "続き";
 				LineNo[Scene][SerifNo]++;
 			}
-			else {
+			else 
+			{
 				SerifNo++;
 				LineNo[Scene][SerifNo]++;
 			}
@@ -222,6 +225,8 @@ void TextClass::Main(UserClass& User)
 	}
 	CheckCotrolCode(User);
 
+	PutNextLine(User);
+
 	//テキスト描画
 //	if (WriteMode == NORMAL) NormalWrite(User);	//通常テキスト描画
 	//if (WriteMode == BACKLOG) BackLogMain(User);	//バックログ
@@ -316,7 +321,7 @@ void TextClass::WriteText(UserClass& User)
 	std::string str = "";
 
 	//定数定義	
-	const int DrawX = 250;							//描画基準Ｘ座標						
+	const int DrawX = 100;							//描画基準Ｘ座標						
 	const int DrawY = SCREEN_SIZE_Y - SCREEN_SIZE_Y / 3 + 50;	//描画基準Ｙ座標
 	const int TextSpace = 14;							//文字と文字の間隔
 	const int LineSpace = 40;							//行と行の間隔
@@ -413,9 +418,9 @@ void TextClass::PutNextLine(UserClass& User)
 	//インスタンス取得
 	KeyClass* Key = KeyClass::GetInstance();
 	MouseClass Mouse = MouseClass::GetInstance();
-
 	//エンターが押されて、テキストが表示し終わって、メニューを選択していないなら、カウントを進める
-	if ((Key->GetState(KEY_INPUT_RETURN) == 1 || Mouse.GetState(MOUSE::_LEFT) == 1))
+	if ((Key->GetState(KEY_INPUT_RETURN) == 1 || 
+		(Mouse.GetState(MOUSE::_LEFT) == 1 && !oldLeftMouse)))
 	{
 		//テキスト表示完了フラグが立っていればカウントを進める
 		if (TextGraphEndFlag == 1)
@@ -439,6 +444,7 @@ void TextClass::PutNextLine(UserClass& User)
 			TextGraphEndFlag = 1;
 		}
 	}
+	oldLeftMouse = Mouse.GetState(MOUSE::_LEFT);
 }
 
 /*ウィンドウ非表示*/
