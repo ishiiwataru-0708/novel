@@ -11,7 +11,8 @@ AnimeClass::AnimeClass()
 int AnimeClass::FadeIn(int Speed)
 {
 	//‰æ–Ê‚ð‚¾‚ñ‚¾‚ñ–¾‚é‚­‚·‚é
-	if (FadeFlag == 0) {
+	if (FadeFlag == 0) 
+	{
 		SetDrawBright(Count, Count, Count);
 		Count += Speed;
 	}

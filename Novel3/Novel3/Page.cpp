@@ -74,7 +74,7 @@ void GamePageClass::Main(UserClass& User)
 	{
 		//ゲームメイン
 	case MODE::MAIN:
-		Text.Main(User);
+		Text.Main(ChangeFlag,User);
 		Text.ModeChange(ModeFlag, ChangeFlag, User);
 		break;
 		//エンディング

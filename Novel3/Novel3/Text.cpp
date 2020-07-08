@@ -66,7 +66,7 @@ void TextClass::LoadStory()
 	while (Scene <= SceneMax - 1)
 	{
 		//ファイル名を取得
-		sprintf_s(FileName, "story/仮1.txt",Scene);
+		sprintf_s(FileName, "story/仮%d.txt",Scene);
 
 		//ファイルオープン
 		FileHandle = FileRead_open(FileName);
@@ -201,11 +201,12 @@ int TextClass::CutSpace(std::string& TmpText)
 
 }
 
-void TextClass::Main(UserClass& User) 
+void TextClass::Main(int& ChangeFlag, UserClass& User)
 {
-	//テキストチェック
-	CheckText(User);
-	
+	const int Speed = 5;	//フェードイン速度
+
+	FadeFlag = Graph.Anime.FadeIn(Speed);
+
 	//背景描画
 	Graph.DrawBack(User);
 
@@ -223,12 +224,18 @@ void TextClass::Main(UserClass& User)
 	{
 		NormalWrite(User);	//通常テキスト描画
 	}
-	CheckCotrolCode(User);
 
-	PutNextLine(User);
+	CheckCotrolCode(User); //行改行処理
+
+	//テキストチェック
+	CheckText(User);
+
+	PutNextLine(User); //名前非表示
+
+	NotWindow();
 
 	//テキスト描画
-//	if (WriteMode == NORMAL) NormalWrite(User);	//通常テキスト描画
+	if (WriteMode == NORMAL) NormalWrite(User);	//通常テキスト描画
 	//if (WriteMode == BACKLOG) BackLogMain(User);	//バックログ
 	if (WriteMode == NOTWINDOW) NotWindow();		//ウィンドウ非表示
 	//if (WriteMode == END) GameEnd(User);		//ゲーム終了

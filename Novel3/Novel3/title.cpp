@@ -7,7 +7,7 @@
 void TitleClass::Main(int& ChangeFlag, UserClass& User) 
 {
 	//定数宣言
-	const int Speed = 10;	//フェードイン速度
+	const int Speed = 5;	//フェードイン速度
 
 	//モードチェンジして一回目
 	if (ChangeFlag == true)

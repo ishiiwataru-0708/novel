@@ -35,6 +35,8 @@ private:
 	std::string Name[64][1024];							//キャラネーム変数
 	std::vector<std::vector<std::string>> Text;							//セリフテキスト変数
 	bool oldLeftMouse;
+	bool FadeFlag;
+
 
 
 
@@ -49,7 +51,7 @@ public:
 
 
 	//メイン関数
-	void Main(UserClass& User);		//メイン関数
+	void Main(int& ChangeFlag, UserClass& User);		//メイン関数
 	void ModeChange(int& ModeFlag, int& ChangeFlag, UserClass& User);
 
 	//通常描画関連
